@@ -26,7 +26,7 @@ import jwt
 
 app = FastAPI()
 
-origins = ["*",]
+origins = ["http://localhost:3000",]
 
 app.add_middleware(
     CORSMiddleware,
