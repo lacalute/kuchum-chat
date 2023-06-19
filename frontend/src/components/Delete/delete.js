@@ -13,7 +13,6 @@ export const Delete = () => {
     fetch(`https://chat-backend-86jx.onrender.com/api/chat?chat_id=${chat_id}`, {
       method: 'DELETE',
       credentials: 'include',
-      mode: 'no-cors',
       headers: {
         "Content-type": "application/json"
       }

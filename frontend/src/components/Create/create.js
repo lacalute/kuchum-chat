@@ -13,8 +13,6 @@ export const Create = () => {
     fetch(`https://chat-backend-86jx.onrender.com/api/chat?user_id=${values.user_id}`, {
       method: 'POST',
       credentials: 'include',
-      mode: 'no-cors',
-      
       headers: {
         "Content-type": "application/json"
       }

@@ -25,7 +25,7 @@ export const Profile = () => {
   const [isLoading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
-    fetch('https://chat-backend-86jx.onrender.com/api/profile', {'credentials': 'include', 'mode': 'no-cors',})
+    fetch('https://chat-backend-86jx.onrender.com/api/profile', {'credentials': 'include'})
       .then(res => res.json())
       .then(data => {
         setData(data)

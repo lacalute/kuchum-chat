@@ -9,7 +9,6 @@ export function Message() {
     fetch(`https://chat-backend-86jx.onrender.com/api/message?chat_id=${chat_id}`, {
       method: 'POST',
       credentials: 'include',
-      mode: 'no-cors',
       headers: {
         "Content-type": "application/json"
       },
