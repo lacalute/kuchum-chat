@@ -1,7 +1,7 @@
 
 import './App.css';
 import { Auth } from './components/Auth/auth';
-
+import { Create } from './components/Create/create';
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
     <img src={require('./title.png')} className='title_img' />
       <h1 className='title_text'>Вход в Kuchat</h1>
       <Auth />
+      <Create />
     </div>
     </>
   );
