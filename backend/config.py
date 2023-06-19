@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, Request, Response, Cookie
+from fastapi import FastAPI, Depends, Request, Response, Cookie, APIRouter
 from fastapi.responses import JSONResponse
 from fastapi_jwt_auth import AuthJWT
 from fastapi_jwt_auth.exceptions import AuthJWTException
@@ -22,7 +22,8 @@ from typing import Optional
 import base64
 import json
 import jwt
-
+from typing import Callable, List
+from fastapi.routing import APIRoute
 
 
 origins = [
@@ -34,17 +35,26 @@ middleware = [
 ]
 
 app = FastAPI(middleware=middleware)
-@app.middleware("https")
-async def add_cors_header(request: Request, call_next):
-    response = await call_next(request)
-    print('==========before====>headers', response.headers)
-    headers = {'Access-Control-Allow-Origin': 'https://kuch-chat.vercel.app',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization'}
-    response.headers.update(headers)
-    print('==========after====>headers', response.headers)
-    return response
 
+
+# Handle CORS
+class CORSHandler(APIRoute):
+    def get_route_handler(self) -> Callable:
+        original_route_handler = super().get_route_handler()
+
+        async def preflight_handler(request: Request) -> Response:
+            if request.method == 'OPTIONS':
+                response = Response()
+                response.headers['Access-Control-Allow-Origin'] = '*'
+                response.headers['Access-Control-Allow-Methods'] = 'POST, GET, DELETE, OPTIONS'
+                response.headers['Access-Control-Allow-Headers'] = 'Authorization, Content-Type'
+            else:
+                response = await original_route_handler(request)
+
+        return preflight_handler
+
+router = APIRouter(route_class=CORSHandler)
+app.include_router(router)
 
 class CRUD:
   def __init__(self, collection):
