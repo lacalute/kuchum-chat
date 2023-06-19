@@ -1,12 +1,14 @@
 from config import *
 from tokens import *
 crud_chat = CRUD(chat_relate)
+crud_users = CRUD(chat_users)
 
 @app.post('/api/chat', tags=['chat'])
 def create_chat(user_id, req: Request, res: Response):
   TOKEN = token.token_required(res, req, 2)
+
   try:
-    crud_chat.create(chat_scheme(TOKEN['user_id'], user_id))
+    crud_chat.create(chat_scheme(crud_users.get_id(TOKEN['user_id'])['nick'], TOKEN['user_id'], crud_users.get_id(user_id)['nick'], user_id))
     return {'msg': 'success to create chat'}
   except:
     return {'msg': 'faile to create chat'}
@@ -28,4 +30,10 @@ def your_chats(req: Request, res: Response):
     for n in find_chat['relate']:
       if n == TOKENS['user_id']:
         result.append(find_chat)
+
   return result
+
+
+@app.get('/api/chatId/{chat_id}', tags=['chat'])
+def chatId(chat_id):
+  return crud_chat.get_id(chat_id)

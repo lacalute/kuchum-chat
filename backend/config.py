@@ -96,9 +96,12 @@ def user_payload(nick, password):
   return user_payload
 
 
-def chat_scheme(person1, person2):
+def chat_scheme(nick, id1, nick2, id2):
   chat_scheme = {
-    'relate': [person1, person2],
+    'relate': [
+      [nick, id1],
+      [nick2, id2]
+    ],
     'history': []
   }
   return chat_scheme
