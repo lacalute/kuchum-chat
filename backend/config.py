@@ -21,12 +21,12 @@ from typing import Optional
 import base64
 import json
 import jwt
-import requests
-from typing import Union
+
 
 
 
 app = FastAPI()
+
 origins = ["*",]
 
 app.add_middleware(
