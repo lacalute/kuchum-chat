@@ -2,16 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { Users } from './components/Users/users';
-import { Auth } from './components/Auth/auth';
+
+import { Message } from './components/Message/message'
+import { Profile } from './components/Profile/profile';
+import { Page } from './components/Page/page';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom'
+import { Link, Route, Routes } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <Users />
+    <BrowserRouter >
+    <Routes>
+        <Route path="/profile" element={ <Profile /> }></Route>
+        <Route path="/chatId/:chat_id" element={ <Page /> }></Route>
+        <Route path="/" element={ <App /> }></Route>
+      </Routes>
+    {/* <Users />
     <Auth />
+    <Profile />
+    <Chats /> */}
+    </BrowserRouter>
   </React.StrictMode>
 );
 
