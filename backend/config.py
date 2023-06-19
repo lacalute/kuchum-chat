@@ -26,7 +26,7 @@ import jwt
 
 
 origins = [
-  "*"
+  "https://kuch-chat.vercel.app/"
 ]
 
 middleware = [
@@ -38,7 +38,7 @@ app = FastAPI(middleware=middleware)
 async def add_cors_header(request: Request, call_next):
     response = await call_next(request)
     print('==========before====>headers', response.headers)
-    headers = {'Access-Control-Allow-Origin': '*',
+    headers = {'Access-Control-Allow-Origin': 'https://kuch-chat.vercel.app/',
         'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization'}
     response.headers.update(headers)
