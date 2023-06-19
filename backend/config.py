@@ -26,14 +26,14 @@ import jwt
 
 app = FastAPI()
 
-origins = ["https://kuchum-chat.vercel.app/",]
+origins = ["https://kuchum-chat.vercel.app/"]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["Origin", "X-Requested-With", "Content-Type", "Accept"],
 )
 
 
