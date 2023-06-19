@@ -14,6 +14,7 @@ export const Auth = () => {
       method: 'POST',
       credentials: 'include',
       headers: {
+        "Content-type": "application/json",
         'Access-Control-Allow-Origin': 'https://kuch-chat.vercel.app/',
         'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization',
