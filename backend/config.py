@@ -26,7 +26,7 @@ import jwt
 
 app = FastAPI()
 
-origins = ["http://localhost:3000",]
+origins = ["https://kuchum-chat.vercel.app/",]
 
 app.add_middleware(
     CORSMiddleware,
