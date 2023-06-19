@@ -15,7 +15,8 @@ export const Auth = () => {
       mode: 'cors',
       credentials: 'include',
       headers: {
-        "Content-type": "application/json"
+        "Content-type": "application/json",
+        "Access-Control-Allow-Origin": "https://kuchum-chat.vercel.app/"
       },
       body: JSON.stringify(values),
     }).then(() => navigate('/profile'))

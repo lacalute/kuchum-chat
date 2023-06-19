@@ -5,7 +5,7 @@ export const Users = () => {
   const [isLoading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
-    fetch('https://chat-backend-86jx.onrender.com/api/users')
+    fetch('https://chat-backend-86jx.onrender.com/api/users', {"Access-Control-Allow-Origin": "https://kuchum-chat.vercel.app/"})
       .then(res => res.json())
       .then(data => {
         setData(data)

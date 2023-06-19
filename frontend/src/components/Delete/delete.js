@@ -14,7 +14,8 @@ export const Delete = () => {
       method: 'DELETE',
       credentials: 'include',
       headers: {
-        "Content-type": "application/json"
+        "Content-type": "application/json",
+        "Access-Control-Allow-Origin": "https://kuchum-chat.vercel.app/"
       }
     }).then(() => navigate('/profile'))
     // .then(() => navigate('/profile'))
