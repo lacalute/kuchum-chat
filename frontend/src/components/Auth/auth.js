@@ -17,7 +17,7 @@ export const Auth = () => {
         "Content-type": "application/json",
       },
       body: JSON.stringify(values),
-    })
+    }).then(() => navigate('/profile'))
 
   }
   
