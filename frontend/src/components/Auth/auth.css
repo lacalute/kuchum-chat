@@ -37,3 +37,9 @@
 .info {
   font-family: 'Roboto';
 }
+
+.loading {
+  font-family: 'Roboto';
+  color: #77B168;
+  font-weight: lighter;
+}

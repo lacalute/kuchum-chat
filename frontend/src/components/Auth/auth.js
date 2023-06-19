@@ -22,7 +22,7 @@ export const Auth = () => {
 
   }
   
-  if (isLoading) return <h1>Вход в систему...</h1>
+  if (isLoading) return <h1 className='loading'>Вход в систему...</h1>
 
 
   return (
