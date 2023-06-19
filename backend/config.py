@@ -24,7 +24,6 @@ import jwt
 
 
 
-
 app = FastAPI()
 
 origins = ["*",]

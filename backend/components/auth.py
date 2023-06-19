@@ -9,7 +9,7 @@ def login(user: User, req: Request, res: Response, Authorize: AuthJWT = Depends(
   token.tokens_required(req, 1, Authorize)
   user_db = chat_users.find_one({'nick': user.nick})
 
-  if user_db and check_hashing(user.password, user_db['password']):
+  if user_db and check_hashing(str(user.password).encode('utf-8'), user_db['password']):
     Authorize.set_access_cookies(token.create_access_token(user_db['_id']))
     Authorize.set_refresh_cookies(token.create_refresh_token())
     return {"msg": "Successfuly login"}
