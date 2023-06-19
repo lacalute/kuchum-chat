@@ -25,16 +25,16 @@ def delete_chat(chat_id, req: Request, res: Response):
 @app.get('/api/chat', tags=['chat'])
 def your_chats(req: Request, res: Response):
   TOKENS = token.token_required(res, req, 2)
-  result = []
-  for find_chat in chat_relate.find():
-    find_chat['_id'] = str(find_chat['_id'])
-    for n in find_chat['relate']:
-      if n[1] == TOKENS['user_id']:
-        result.append(find_chat)
-
-
-  return result
-
+  if TOKENS != 'null':
+    result = []
+    for find_chat in chat_relate.find():
+      find_chat['_id'] = str(find_chat['_id'])
+      for n in find_chat['relate']:
+        if n[1] == TOKENS['user_id']:
+          result.append(find_chat)
+    return result
+  else:
+    return 'null'
 
 @app.get('/api/chatId/{chat_id}', tags=['chat'])
 def chatId(chat_id):
