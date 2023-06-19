@@ -6,3 +6,9 @@
   width: 800px;
   height: auto;
 }
+
+.title_text {
+  color: #77B168;
+  font-family: 'Roboto';
+  font-weight: lighter;
+}

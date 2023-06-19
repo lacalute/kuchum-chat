@@ -1,0 +1,39 @@
+.input {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+  width: 200px;
+  padding: 5px 8px;
+  border: 1px solid #000;
+  outline: none;
+  font-size: 13px;  
+  font-family: 'Roboto';
+
+}
+
+.input:focus {
+  border: 1px solid #77B168;
+}
+
+.post_submit {
+  width: 150px;
+  height: 30px;
+  background-color: #77B168;
+  color: white;
+  border: 1px solid #77B168;
+  font-weight: bold;
+  font-family: 'Roboto';
+  cursor: pointer;
+}
+
+.post_submit:hover {
+  background-color: #fff;
+  border: 1px solid #77B168;
+  color: #77B168;
+  transition: all .2s ease-in;
+}
+
+.info {
+  font-family: 'Roboto';
+}
