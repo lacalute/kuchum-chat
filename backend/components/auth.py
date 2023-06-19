@@ -23,7 +23,7 @@ def login(user: User, req: Request, res: Response):
 
 @app.get('/api/logout', tags=['auth'])
 async def logout (res: Response):
-  res.delete_cookie("access_token_cookie")
+  res.delete_cookie("access_token_cookie", samesite='none', secure=True)
   return {"msg": "OK"}
 
 
