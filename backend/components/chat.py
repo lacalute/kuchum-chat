@@ -14,7 +14,8 @@ def create_chat(user_id, req: Request, res: Response):
     return {'msg': 'faile to create chat'}
 
 @app.delete('/api/chat', tags=['chat'])
-def delete_chat(chat_id):
+def delete_chat(chat_id, req: Request, res: Response):
+  TOKEN = token.token_required(res, req, 2)
   try:
     crud_chat.delete(chat_id)
     return {'msg': 'Chat was deleted'}
@@ -28,8 +29,9 @@ def your_chats(req: Request, res: Response):
   for find_chat in chat_relate.find():
     find_chat['_id'] = str(find_chat['_id'])
     for n in find_chat['relate']:
-      if n == TOKENS['user_id']:
+      if n[1] == TOKENS['user_id']:
         result.append(find_chat)
+
 
   return result
 
