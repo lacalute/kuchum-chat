@@ -12,6 +12,7 @@ export const Auth = () => {
     setLoading(true)
     fetch('https://chat-backend-86jx.onrender.com/api/login', {
       method: 'POST',
+      mode: 'cors',
       credentials: 'include',
       headers: {
         "Content-type": "application/json"
