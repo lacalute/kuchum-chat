@@ -9,11 +9,7 @@ def all_users():
   return crud_users.get_all()
 
 @app.post('/api/profile', tags=['user'])
-def profile(user: User): 
-  try:
-    user_db = chat_users.find_one({'nick': user.nick})
-    if user_db and check_hashing(user.password, user_db['password']):
-      return str(user_db['_id'])
-  except: 
-    return 'User not found'
+def profile(req: Request, res: Response): 
+  TOKENS = token.token_required(res, req, 2)
+  return TOKENS
 
