@@ -36,25 +36,27 @@ middleware = [
 
 app = FastAPI(middleware=middleware)
 
+# Salt to your taste
+ALLOWED_ORIGINS = 'https://kuch-chat.vercel.app'    # or 'foo.com', etc.
 
-# Handle CORS
-class CORSHandler(APIRoute):
-    def get_route_handler(self) -> Callable:
-        original_route_handler = super().get_route_handler()
+# handle CORS preflight requests
+@app.options('/{rest_of_path:path}')
+async def preflight_handler(request: Request, rest_of_path: str) -> Response:
+    response = Response()
+    response.headers['Access-Control-Allow-Origin'] = ALLOWED_ORIGINS
+    response.headers['Access-Control-Allow-Methods'] = 'POST, GET, DELETE, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Authorization, Content-Type'
+    return response
 
-        async def preflight_handler(request: Request) -> Response:
-            if request.method == 'OPTIONS':
-                response = Response()
-                response.headers['Access-Control-Allow-Origin'] = 'https://kuch-chat.vercel.app'
-                response.headers['Access-Control-Allow-Methods'] = 'POST, GET, DELETE, OPTIONS'
-                response.headers['Access-Control-Allow-Headers'] = 'Authorization, Content-Type'
-            else:
-                response = await original_route_handler(request)
+# set CORS headers
+@app.middleware("http")
+async def add_CORS_header(request: Request, call_next):
+    response = await call_next(request)
+    response.headers['Access-Control-Allow-Origin'] = ALLOWED_ORIGINS
+    response.headers['Access-Control-Allow-Methods'] = 'POST, GET, DELETE, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Authorization, Content-Type'
+    return response
 
-        return preflight_handler
-
-router = APIRouter(route_class=CORSHandler)
-app.include_router(router)
 
 class CRUD:
   def __init__(self, collection):
