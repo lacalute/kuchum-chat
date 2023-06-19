@@ -10,7 +10,6 @@ function App() {
     <img src={require('./title.png')} className='title_img' />
       <h1 className='title_text'>Вход в Kuchat</h1>
       <Auth />
-      <Create />
     </div>
     </>
   );
