@@ -14,9 +14,8 @@ export const Auth = () => {
       method: 'POST',
       credentials: 'include',
       headers: {
-        "Content-type": "application/json",
         'Access-Control-Allow-Origin': 'https://kuchum-chat.vercel.app/',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       },
       body: JSON.stringify(values),
