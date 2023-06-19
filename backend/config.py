@@ -107,9 +107,9 @@ def chat_scheme(nick, id1, nick2, id2):
   return chat_scheme
 
 
-def message_scheme(user_id, message):
+def message_scheme(user_id, nick, message):
   message_scheme = {
-    'user_id': user_id,
+    'user': [user_id, nick],
     'message': message
   }
   return message_scheme
