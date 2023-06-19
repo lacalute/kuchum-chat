@@ -17,7 +17,7 @@ class Token():
     access_token = req.cookies.get('access_token_cookie')
 
     if not access_token and option != 1:
-      raise AccessTokenRequired(status_code=422,message="There are no tokens in cookies")
+      return 'null'
     
     return self.tokenAccess(access_token, res)
   # return access_token
