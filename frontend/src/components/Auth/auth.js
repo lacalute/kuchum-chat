@@ -12,11 +12,12 @@ export const Auth = () => {
     setLoading(true)
     fetch('https://chat-backend-86jx.onrender.com/api/login', {
       method: 'POST',
-      mode: 'cors',
       credentials: 'include',
       headers: {
         "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "https://kuchum-chat.vercel.app/"
+        'Access-Control-Allow-Origin': 'https://kuchum-chat.vercel.app/',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       },
       body: JSON.stringify(values),
     })

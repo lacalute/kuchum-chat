@@ -13,9 +13,9 @@ export const Delete = () => {
     fetch(`https://chat-backend-86jx.onrender.com/api/chat?chat_id=${chat_id}`, {
       method: 'DELETE',
       credentials: 'include',
+      mode: 'no-cors',
       headers: {
-        "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "https://kuchum-chat.vercel.app/"
+        "Content-type": "application/json"
       }
     }).then(() => navigate('/profile'))
     // .then(() => navigate('/profile'))

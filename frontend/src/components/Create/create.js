@@ -13,10 +13,10 @@ export const Create = () => {
     fetch(`https://chat-backend-86jx.onrender.com/api/chat?user_id=${values.user_id}`, {
       method: 'POST',
       credentials: 'include',
+      mode: 'no-cors',
       
       headers: {
-        "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "https://kuchum-chat.vercel.app/"
+        "Content-type": "application/json"
       }
     }).then(() => window.location.reload())
     // .then(() => navigate('/profile'))

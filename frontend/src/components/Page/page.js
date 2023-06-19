@@ -9,7 +9,7 @@ export const Page = () => {
   const [isLoading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
-    fetch(`https://chat-backend-86jx.onrender.com/api/chatId/${chat_id}`, {'credentials': 'include', 'method': 'GET', "Access-Control-Allow-Origin": "https://kuchum-chat.vercel.app/"})
+    fetch(`https://chat-backend-86jx.onrender.com/api/chatId/${chat_id}`, {'credentials': 'include', 'method': 'GET', 'mode': 'no-cors',})
       .then(res => res.json())
       .then(data => {
         setData(data)
