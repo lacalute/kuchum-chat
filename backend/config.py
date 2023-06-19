@@ -124,7 +124,7 @@ def authjwt_exception_handler(request: Request, exc: AuthJWTException):
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8001", "http://0.0.0.0:8001"],
+    allow_origins=["https://kuch-chat.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
