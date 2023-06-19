@@ -8,7 +8,7 @@ crud_users = CRUD(chat_users)
 def all_users():
   return crud_users.get_all()
 
-@app.post('/api/profile', tags=['user'])
+@app.get('/api/profile', tags=['user'])
 def profile(req: Request, res: Response): 
   TOKENS = token.token_required(res, req, 2)
   return TOKENS

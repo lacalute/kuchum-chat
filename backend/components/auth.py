@@ -5,8 +5,8 @@ crud_security = CRUD(chat_users)
 tokens_list = []
 
 @app.post('/api/login', tags=['auth'])
-def login(user: User, req: Request, res: Response, Authorize: AuthJWT = Depends()):
-  token.tokens_required(req, 1, Authorize)
+def login(user: User, req: Request, res: Response):
+  token.token_required(res, req, 1)
   user_db = chat_users.find_one({'nick': user.nick})
 
   if user_db and check_hashing(str(user.password), user_db['password']):
