@@ -14,6 +14,7 @@ from fastapi_jwt_auth.exceptions import (
 )
 from pydantic import BaseModel
 from connection import *
+from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 from hashing import *
 from bson.objectid import ObjectId
@@ -24,7 +25,15 @@ import jwt
 
 
 
-app = FastAPI()
+origins = [
+  "https://kuch-chat.vercel.app/",
+]
+
+middleware = [
+  Middleware(CORSMiddleware, allow_origins=origins)
+]
+
+app = FastAPI(middleware=middleware)
 
 
 class CRUD:
@@ -121,11 +130,3 @@ def authjwt_exception_handler(request: Request, exc: AuthJWTException):
         status_code=exc.status_code,
         content={"detail": exc.message}
     )
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["https://kuch-chat.vercel.app/"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
