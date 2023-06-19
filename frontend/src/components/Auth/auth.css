@@ -11,6 +11,11 @@
   font-family: 'Roboto';
 
 }
+.title_text {
+  color: #77B168;
+  font-family: 'Roboto';
+  font-weight: lighter;
+}
 
 .input:focus {
   border: 1px solid #77B168;

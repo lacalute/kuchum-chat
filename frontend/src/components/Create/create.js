@@ -32,7 +32,7 @@ export const Create = () => {
   return (
     <>
     <style>{css}</style>
-    <h1>Создать чат</h1>
+    <h1 className="title_text">Создать чат</h1>
     <form method="post" onSubmit={submitHandler}>
       <div className='panel'>
         <input className='input_id' required value={values.nick} onChange={e => setValues({ ...values, user_id: e.target.value })} id='title' type='text' placeholder='Введите id собеседника' />

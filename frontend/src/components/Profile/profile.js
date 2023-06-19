@@ -46,7 +46,7 @@ export const Profile = () => {
     <>
     <Users />
     <style>{css}</style>
-    <h1 className="id_title">Your id</h1>
+    <h1 className="title_text">Your id</h1>
     <h4 className="id_result" key={data}>{data.user_id}</h4>
     <Chats />
     <Create />

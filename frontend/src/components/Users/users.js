@@ -17,7 +17,7 @@ export const Users = () => {
   if (data != null){
   return (
     <>
-    <h1>Users</h1>
+    <h1 className="title_text">Users</h1>
     {data.map(user => <li key={user.nick}>{user.nick}, {user._id}</li>)}
     </>
   )}

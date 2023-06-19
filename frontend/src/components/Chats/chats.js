@@ -26,7 +26,7 @@ export const Chats = () => {
 
   return (
     <>
-    <h1>Chats</h1>
+    <h1 className="title_text">Chats</h1>
     <ul>{chatId}</ul>
     {/* <h3>Собеседники</h3>
     {chatUsers} */}
