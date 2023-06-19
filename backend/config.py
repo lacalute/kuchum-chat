@@ -45,7 +45,7 @@ class CORSHandler(APIRoute):
         async def preflight_handler(request: Request) -> Response:
             if request.method == 'OPTIONS':
                 response = Response()
-                response.headers['Access-Control-Allow-Origin'] = '*'
+                response.headers['Access-Control-Allow-Origin'] = 'https://kuch-chat.vercel.app'
                 response.headers['Access-Control-Allow-Methods'] = 'POST, GET, DELETE, OPTIONS'
                 response.headers['Access-Control-Allow-Headers'] = 'Authorization, Content-Type'
             else:
