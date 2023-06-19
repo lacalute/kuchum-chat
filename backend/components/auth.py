@@ -22,8 +22,8 @@ def login(user: User, req: Request, res: Response):
   return {'msg': 'Creditionals are bad'}
 
 @app.get('/api/logout', tags=['auth'])
-async def logout (Authorize: AuthJWT = Depends()):
-  Authorize.unset_jwt_cookies()
+async def logout (res: Response):
+  res.delete_cookie("access_token_cookie")
   return {"msg": "OK"}
 
 
