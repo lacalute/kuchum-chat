@@ -20,6 +20,7 @@ class Token():
     'refresh': self.tokenRefresh(refresh_token, auth),
     'access': self.tokenAccess(access_token, auth)
     }
+
     if not access_token and not refresh_token and option != 1:
       raise AccessTokenRequired(status_code=422,message="There are no tokens in cookies")
     return tokens
