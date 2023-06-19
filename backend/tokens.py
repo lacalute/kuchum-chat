@@ -15,9 +15,10 @@ class Token():
     option - 1 if login or registration
     """
     access_token = req.cookies.get('access_token_cookie')
-    print(access_token)
+
     if not access_token and option != 1:
       raise AccessTokenRequired(status_code=422,message="There are no tokens in cookies")
+    
     return self.tokenAccess(access_token, res)
   # return access_token
   def create_access_token(self, user_id):

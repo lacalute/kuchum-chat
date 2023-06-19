@@ -10,6 +10,6 @@ def all_users():
 
 @app.get('/api/profile', tags=['user'])
 def profile(req: Request, res: Response):
-  tok = req.cookies.get('access_token_cookie') 
-  return tok
+  TOKENS = token.token_required(res, req, 2)
+  return TOKENS
 
