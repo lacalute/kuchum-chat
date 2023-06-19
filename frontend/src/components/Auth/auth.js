@@ -19,7 +19,7 @@ export const Auth = () => {
         "Access-Control-Allow-Origin": "https://kuchum-chat.vercel.app/"
       },
       body: JSON.stringify(values),
-    }).then(() => navigate('/profile'))
+    })
 
   }
   
