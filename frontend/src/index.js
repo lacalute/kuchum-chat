@@ -9,10 +9,13 @@ import { Page } from './components/Page/page';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
 import { Link, Route, Routes } from "react-router-dom";
+import { Nav } from './components/Nav/nav';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Nav />
+    <div className='container'>
     <BrowserRouter >
     <Routes>
         <Route path="/profile" element={ <Profile /> }></Route>
@@ -24,6 +27,7 @@ root.render(
     <Profile />
     <Chats /> */}
     </BrowserRouter>
+    </div>
   </React.StrictMode>
 );
 

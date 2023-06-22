@@ -5,4 +5,3 @@ client = MongoClient(uri)
 db = client['sample_mflix']
 chat_users = db['chat-users']
 chat_relate = db['chat-relate']
-

@@ -1,31 +1,28 @@
 
 import React, { useEffect, useState } from "react";
-import Cookies from 'js-cookie'
+
 import {Users} from '../Users/users'
 import {Chats} from '../Chats/chats'
 import { Create } from "../Create/create";
-
-const handleClick = () => {
-
-  const response = fetch('https://chat-backend-86jx.onrender.com/api/logout', {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-    },
-  })
-// .then(() => {window.location.reload()});
-
-
-
-};
+import { Nav } from '../Nav/nav'
+ 
+export const Id = (id) => {
+    return (
+      <>
+      <h1 className="title_text">Your id</h1>
+      <h4 className="id_result">{id.id}</h4>
+      </>
+    )
+  
+}
 
 
 export const Profile = () => {
   const [data, setData] = useState()
-  const [isLoading, setLoading] = useState(false)
+
   useEffect(() => {
-    setLoading(true)
-    fetch('https://chat-backend-86jx.onrender.com/api/profile', {'credentials': 'include'})
+
+    fetch('http://localhost:8000/api/profile', {'credentials': 'include'})
       .then(res => res.json())
       .then(data => {
         setData(data)
@@ -41,20 +38,16 @@ export const Profile = () => {
     }
     
   `
-  if (data != undefined && data != 'null') {
+  if (data != undefined && data != 'null' && data != null) {
+
   return (
     <>
     <Users />
-    <style>{css}</style>
-    <h1 className="title_text">Your id</h1>
-    <h4 className="id_result" key={data}>{data.user_id}</h4>
+    <Id id={data.user_id} />
     <Chats />
     <Create />
     </>
-  )}
-  else {
-    return (
-      <h1>У вас нет прав</h1>
-    )
-    }
+  )
+
+  }
 }

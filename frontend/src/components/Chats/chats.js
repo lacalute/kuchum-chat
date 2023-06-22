@@ -8,7 +8,7 @@ export const Chats = () => {
   const [isLoading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
-    fetch('https://chat-backend-86jx.onrender.com/api/chat', {'credentials': 'include', 'method': 'GET'})
+    fetch('http://localhost:8000/api/chat', {'credentials': 'include', 'method': 'GET'})
       .then(res => res.json())
       .then(data => {
         setData(data)
@@ -18,7 +18,7 @@ export const Chats = () => {
 
 
   if (data!='null' && data!=null) {
-    console.log(data)
+
     const chatId = data.map((number) =>
       <li><Link to={`/chatId/${number._id}`}>Чат - {number.relate.map(cons => <span key={cons}>{cons[0]} </span>)}</Link></li>
       

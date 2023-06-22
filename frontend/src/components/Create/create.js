@@ -7,10 +7,10 @@ export const Create = () => {
   const [isLoading, setLoading] = useState(false)
   const submitHandler = e => {
     e.preventDefault()
-    console.log(JSON.stringify(values))
+
     setLoading(true)
-    console.log("HELLO", values)
-    fetch(`https://chat-backend-86jx.onrender.com/api/chat?user_id=${values.user_id}`, {
+
+    fetch(`http://localhost:8000/api/chat?user_id=${values.user_id}`, {
       method: 'POST',
       credentials: 'include',
       headers: {

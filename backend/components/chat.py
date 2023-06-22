@@ -37,5 +37,18 @@ def your_chats(req: Request, res: Response):
     return 'null'
 
 @app.get('/api/chatId/{chat_id}', tags=['chat'])
-def chatId(chat_id):
-  return crud_chat.get_id(chat_id)
+def chatId(chat_id, req: Request, res: Response):
+  if token.token_required(res, req, 2):
+    return crud_chat.get_id(chat_id)
+
+@app.websocket("/ws/{chat_id}")
+async def websocket_endpoint(chat_id, websocket: WebSocket):
+  await websocket.accept()
+  while True:
+    data = await websocket.receive_text()
+    data_json = json.loads(data)
+    print(data_json)
+    chat_history = crud_chat.get_id(chat_id)['history']
+    chat_history.append(message_scheme(data_json['id'], crud_users.get_id(data_json['id'])['nick'], data_json['msg']))
+    crud_chat.update(chat_id, {'history': chat_history})
+    await websocket.send_json(chat_history)
