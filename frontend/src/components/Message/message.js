@@ -35,7 +35,7 @@ export function Message() {
   
   
   console.log(msg)
-  if (msg.length != 0) {
+  if (msg.length != 0 && msg != undefined) {
   return (
     <>
     {msg.map(msg => 
