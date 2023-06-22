@@ -22,7 +22,7 @@ export const Profile = () => {
 
   useEffect(() => {
 
-    fetch('http://localhost:8000/api/profile', {'credentials': 'include'})
+    fetch('https://chat-backend-86jx.onrender.com/api/profile', {'credentials': 'include'})
       .then(res => res.json())
       .then(data => {
         setData(data)
@@ -38,7 +38,7 @@ export const Profile = () => {
     }
     
   `
-  if (data != undefined && data != 'null' && data != null) {
+  if (data != undefined && data != 'null') {
 
   return (
     <>

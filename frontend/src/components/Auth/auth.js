@@ -11,7 +11,7 @@ export const Auth = () => {
     e.preventDefault()
 
     setLoading(true)
-    fetch('http://localhost:8000/api/login', {
+    fetch('https://chat-backend-86jx.onrender.com/api/login', {
       method: 'POST',
       credentials: 'include',
       headers: {

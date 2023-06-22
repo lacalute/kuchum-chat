@@ -10,7 +10,7 @@ export const Create = () => {
 
     setLoading(true)
 
-    fetch(`http://localhost:8000/api/chat?user_id=${values.user_id}`, {
+    fetch(`https://chat-backend-86jx.onrender.com/api/chat?user_id=${values.user_id}`, {
       method: 'POST',
       credentials: 'include',
       headers: {

@@ -10,7 +10,7 @@ export const Delete = () => {
   const submitHandler = e => {
     e.preventDefault()
     setLoading(true)
-    fetch(`http://localhost:8000/api/chat?chat_id=${chat_id}`, {
+    fetch(`https://chat-backend-86jx.onrender.com/api/chat?chat_id=${chat_id}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: {

@@ -8,7 +8,7 @@ export const Chats = () => {
   const [isLoading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
-    fetch('http://localhost:8000/api/chat', {'credentials': 'include', 'method': 'GET'})
+    fetch('https://chat-backend-86jx.onrender.com/api/chat', {'credentials': 'include', 'method': 'GET'})
       .then(res => res.json())
       .then(data => {
         setData(data)
