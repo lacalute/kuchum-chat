@@ -35,8 +35,8 @@ export function Message() {
   
   
   console.log(msg)
-  if (!msg) {
-  return (
+  if (!msg) return 
+   return (
     <>
     {msg.map(msg => 
       <div>
@@ -51,7 +51,7 @@ export function Message() {
     </form>
     <a href='/'>Выйти из чата</a>
     </>
-  )}
+  )
 
   return (
     <>
