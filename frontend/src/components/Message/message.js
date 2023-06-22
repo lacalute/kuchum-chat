@@ -10,7 +10,7 @@ export function Message() {
   const [msg, setMsg] = useState()
   const [values, setValues] = useState({message: ''})
 
-  const socket = new WebSocket(`ws://chat-backend-86jx.onrender.com/ws/${chat_id}`);
+  const socket = new WebSocket(`wss://chat-backend-86jx.onrender.com/ws/${chat_id}`);
 
   useEffect(() => {
     fetch('https://chat-backend-86jx.onrender.com/api/profile', {'credentials': 'include'})
