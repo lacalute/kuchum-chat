@@ -42,7 +42,7 @@ export function Message() {
   if (!msg) return 
    return (
     <>
-    {msg.map(msg => 
+    {msg.history.map(msg => 
       <div>
         <h1 className="user_name" key={msg}>@{msg.user[1]}</h1>
         <h3 className="user_message" key={msg}>{msg.message}</h3>
