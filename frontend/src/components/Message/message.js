@@ -40,8 +40,10 @@ export function Message() {
   
   console.log(msg)
   if (!msg) return 
+  console.log(msg.history)
    return (
     <>
+    
     {msg.history.map(msg => 
       <div>
         <h1 className="user_name" key={msg}>@{msg.user[1]}</h1>
