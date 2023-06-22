@@ -5,7 +5,7 @@ import App from './App';
 
 import { Message } from './components/Message/message'
 import { Profile } from './components/Profile/profile';
-import { Page } from './components/Page/page';
+
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
 import { Link, Route, Routes } from "react-router-dom";
@@ -19,7 +19,7 @@ root.render(
     <BrowserRouter >
     <Routes>
         <Route path="/profile" element={ <Profile /> }></Route>
-        <Route path="/chatId/:chat_id" element={ <Page /> }></Route>
+        <Route path="/chatId/:chat_id" element={ <Message /> }></Route>
         <Route path="/" element={ <App /> }></Route>
       </Routes>
     {/* <Users />
