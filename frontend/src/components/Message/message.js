@@ -27,12 +27,15 @@ export function Message() {
     }
     setValues({message: ''})
   }
-  socket.onmessage = function(event) {
-    setMsg(JSON.parse(event.data))
-  };
+  useEffect(() => {
+    socket.onmessage = function(event) {
+      setMsg(JSON.parse(event.data))
+    };
+  }, [])
+  
   
   console.log(msg)
-  if (msg != undefined){
+  if (msg.length != 0) {
   return (
     <>
     {msg.map(msg => 
@@ -48,8 +51,8 @@ export function Message() {
     </form>
     <a href='/'>Выйти из чата</a>
     </>
-  )
-  }
+  )}
+
   return (
     <>
     <form method="post" onSubmit={submitHandler}>
