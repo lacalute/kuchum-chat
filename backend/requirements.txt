@@ -4,4 +4,4 @@ pydantic
 PyJWT
 pymongo
 bcrypt
-uvicorn
+uvicorn[standard]
